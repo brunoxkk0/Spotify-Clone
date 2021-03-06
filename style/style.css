@@ -1,0 +1,99 @@
+@font-face {
+  font-family: Circular;
+  src: url(../fonts/CircularSpotifyTxT-Black.ttf);
+}
+
+body{
+	font-family: Circular!important;
+	background-color:rgb(41, 65, 171);;
+}
+
+.container{
+	max-width:1170px;
+	margin:0 auto;
+}
+
+/** Header **/
+
+header{
+	background-color: #000;
+	color: #FFF;
+	min-height:80px;
+	left: 0;
+	right: 0;
+	position:fixed;
+}
+
+.logo{
+	width:132px;
+	float:left;
+	position:relative;
+	display:inline-block;
+	margin:20px;
+}
+
+.nav-menu{
+	position:relative;
+	padding:30px; /*Revisar*/
+	float:right;
+}
+
+.nav-menu a{
+	text-decoration: none;
+	color: #FFF;
+}
+
+.nav-menu ul li{
+	display:inline;
+	padding:13px;
+	font-size:16px;
+}
+
+.mobile-menu{
+	display: none;
+	float:right;
+}
+
+.mobile-menu > div{
+	padding:27px;
+}
+
+.menu-stripe{
+	height:3px;
+	width:26px;
+	margin-bottom:6px;
+	background-color:#FFF;
+}
+
+/**
+.mobile-menu-stripes:hover #stripe-1{
+	transform: rotate(-45deg);
+}
+
+.mobile-menu-stripes:hover #stripe-2{
+	display: none;
+}
+
+.mobile-menu-stripes:hover #stripe-3{
+	transform: rotate(45deg);
+}**/
+
+/** Header **/
+
+/** Header responsive **/
+
+@media(max-width: 991px){
+	.nav-menu ul li{
+		display: none;
+	}
+
+	.mobile-menu{
+		display: block;
+	}
+}
+
+@media(max-width: 630px){
+	header{
+		min-height:200px;
+	}
+}
