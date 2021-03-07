@@ -5,7 +5,7 @@
 
 body{
 	font-family: Circular!important;
-	background-color:rgb(41, 65, 171);;
+	background-color:rgb(41, 65, 171);
 }
 
 .container{
@@ -13,15 +13,29 @@ body{
 	margin:0 auto;
 }
 
-/** Header **/
+@media(min-width: 1200px){
+	body{
+		background-image:url("https://www-growth.scdn.co/static/home/bursts.svg");
+		background-size:175%;
+		background-position: 46% 4%;
+		justify-content: center;
+    	min-height: 846px;
+	}
 
+	.main-title{
+		text-indent: -3.3em;
+		transform: translate(125px, 0px);
+	}
+}
+
+/** Header **/
 header{
 	background-color: #000;
 	color: #FFF;
 	min-height:80px;
 	left: 0;
 	right: 0;
-	position:fixed;
+	position:sticky;
 }
 
 .logo{
@@ -58,11 +72,32 @@ header{
 	padding:27px;
 }
 
+.mobile-nav-menu{
+	display: none;
+	position: fixed;
+	padding:38px;
+	right:0;
+	max-width: 100vw;
+	width:447px;
+	height: 100vh;
+	background-color:#000;
+}
+
+.mobile-nav-menu li{
+	list-style: none;
+}
+
+.mobile-nav-menu a{
+	text-decoration: none;
+	color:#FFF;
+}
+
 .menu-stripe{
 	height:3px;
 	width:26px;
 	margin-bottom:6px;
 	background-color:#FFF;
+	z-index: 1;
 }
 
 /**
@@ -91,9 +126,51 @@ header{
 		display: block;
 	}
 }
+/** Header responsive **/
 
-@media(max-width: 630px){
-	header{
-		min-height:200px;
-	}
+
+/** Main **/
+main{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	height:800px;
 }
+
+#content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.main-title{
+	font-size:156px;
+	line-height: 104px;
+	color:#1ED760;
+	padding-bottom:24px;
+}
+
+.subtitle{
+	color:#1ED760;
+	font-size:18px;
+	line-height:24px;
+	padding-bottom:24px;
+}
+
+.spotify-download{
+	text-transform: uppercase;
+	border-radius:500px;
+	padding: 14px 32px;
+	color:#2941AB;
+	background-color:#1ED760;
+	font-weight: 700;
+	border:none;
+	cursor: pointer;
+}
+
+.spotify-download-link{
+	text-decoration: none;
+	cursor: pointer;
+}
+/** Main **/
