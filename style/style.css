@@ -8,11 +8,10 @@ html{
 }
 
 body{
-	font-family: Circular!important;
+	font-family: Circular !important;
 	background-color:rgb(41, 65, 171);
 	height:100%;
 	width:100vw;
-	background-color: rgb(41, 65, 171);
     background-image: url(https://www-growth.scdn.co/static/home/bursts-mobile.svg);
     background-position: center top 30%;
     background-repeat: no-repeat;
@@ -94,7 +93,7 @@ header{
 .mobile-nav-menu{
 	display: none;
 	position: fixed;
-	padding:38px;
+	width: 100%;
 	top:0;
 	right:0;
 	max-width: 100vw;
