@@ -4,13 +4,14 @@
 }
 
 html{
-	height:100%;
+	width:100vw;
 }
 
 body{
 	font-family: Circular!important;
 	background-color:rgb(41, 65, 171);
 	height:100%;
+	width:100vw;
 }
 
 .container{
@@ -199,12 +200,26 @@ header{
 
 /** Main **/
 
+
+@media(min-width:1200px){
+	.main-title{
+		transform: translate(-128px, 0px);
+	}
+}
+
+@media(max-width:480px){
+	main{
+		display: inline-block;
+	}
+}
+
 main{
 	padding-top:80px;
 }
 
 #content{
 	text-align: center;
+	margin-top: 260px;
 }
 
 .main-title{
@@ -212,7 +227,7 @@ main{
 	line-height: 104px;
 	letter-spacing: -0.04em;
 	color:#1ED760;
-	padding-bottom:24px;
+	padding-bottom:53px;
 }
 
 .subtitle{
