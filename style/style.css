@@ -12,6 +12,19 @@ body{
 	background-color:rgb(41, 65, 171);
 	height:100%;
 	width:100vw;
+	background-color: rgb(41, 65, 171);
+    background-image: url(https://www-growth.scdn.co/static/home/bursts-mobile.svg);
+    background-position: center top 30%;
+    background-repeat: no-repeat;
+    background-size: 195%;
+}
+
+@media(min-width:480px){
+	body{
+		background-image: url(https://www-growth.scdn.co/static/home/bursts-tablet.svg);
+    	background-size: 153%;
+    	background-position: right 40% center;
+	}
 }
 
 .container{
@@ -19,15 +32,6 @@ body{
 	margin:0 auto;
 }
 
-@media(min-width: 1200px){
-	body{
-		background-image:url("https://www-growth.scdn.co/static/home/bursts.svg");
-		background-size:175%;
-		background-position: 46% 4%;
-		justify-content: center;
-    	min-height: 846px;
-	}
-}
 
 /** Header **/
 header{
@@ -93,8 +97,7 @@ header{
 	padding:38px;
 	top:0;
 	right:0;
-	max-width: 200vw;
-	width: 436px;
+	max-width: 100vw;
 	height: 100%;
 	background-color:#000;
 }
@@ -199,20 +202,6 @@ header{
 
 
 /** Main **/
-
-
-@media(min-width:1200px){
-	.main-title{
-		transform: translate(-128px, 0px);
-	}
-}
-
-@media(max-width:480px){
-	main{
-		display: inline-block;
-	}
-}
-
 main{
 	padding-top:80px;
 }
@@ -251,6 +240,34 @@ main{
 .spotify-download-link{
 	text-decoration: none;
 	cursor: pointer;
+}
+
+@media (max-width:480px){
+	main{
+		display: inline-block;
+	}
+	.main-title{
+		font-size: 48px;
+		line-height: 1;
+		padding-bottom: 20px;
+	}
+
+	#content{
+		margin-top: 40%;
+	}
+}
+
+@media (max-width: 360px){
+	#content{
+		margin-top: 30%;
+	}
+}
+
+
+@media(min-width:1200px){
+	.main-title{
+		transform: translate(-128px, 0px);
+	}
 }
 
 /** Main **/
