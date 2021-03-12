@@ -9,9 +9,16 @@ html{
 
 body{
 	font-family: Circular !important;
-	background-color:rgb(41, 65, 171);
 	height:100%;
 	width:100vw;
+}
+
+@media(min-width:1200px){
+	main{
+		background-image:url("https://www-growth.scdn.co/static/home/bursts.svg");
+		background-size: 170%;
+    	background-position: 44% 7%;
+	}
 }
 
 
@@ -197,10 +204,12 @@ header{
 main{
 	padding-top:80px;
 	height:900px;
+	background-color:rgb(41, 65, 171);
 }
 
 body{
-	overflow-x: hidden;
+	background-color:#000;
+	overflow-x:hidden;
 }
 
 #content{
