@@ -51,6 +51,10 @@ header{
 	color: #FFF;
 }
 
+.nav-menu a:hover{
+	color:#1ed760;
+}
+
 .nav-menu ul li{
 	display:inline;
 	padding:13px;
@@ -277,10 +281,6 @@ footer .container, .footer-content{
 	height:500px;
 }
 
-.footer-top{
-	height:400px;
-}
-
 .footer-columns{
 	float:left;
 }
@@ -321,7 +321,6 @@ footer .container, .footer-content{
 #social-icons{
 	margin-top:65px;
 	margin-left:221px;
-	right:0;
 }
 
 #social-icons div{
@@ -374,10 +373,6 @@ footer .container, .footer-content{
 	padding: 20px;
 }
 
-.footer-bottom-links{
-	display: inline;
-}
-
 .footer-bottom-links li{
 	display: inline;
 }
@@ -398,6 +393,42 @@ footer .container, .footer-content{
 	float: right;
 	color:#919496;
 	font-size:12px;
+}
+
+@media(min-width: 767px){
+	.footer-top{
+		height:400px;
+	}
+
+	.footer-bottom-links{
+		display: inline;		
+	}
+}
+
+@media(max-width: 767px){
+	.footer-columns{
+		float:none;
+	}
+
+	#company, #community, #links{
+		padding: 39px 0px 0px 25px;
+	}
+
+	#company{
+		margin-top: 60px;
+	}
+
+	#social-icons{
+		margin-left: 19px;
+	}
+
+	.footer-bottom-links{
+		width: 205px;
+	}
+
+	.footer-copyright{
+		float:none;
+	}
 }
 
 /** Footer **/
