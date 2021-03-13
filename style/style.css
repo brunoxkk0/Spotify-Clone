@@ -203,7 +203,7 @@ header{
 /** Main **/
 main{
 	padding-top:80px;
-	height:900px;
+	height:100vh;
 	background-color:rgb(41, 65, 171);
 }
 
@@ -214,7 +214,9 @@ body{
 
 #content{
 	text-align: center;
-	margin-top: 260px;
+	top: 50%;
+    position: relative;
+    transform: translateY(-50%);
 }
 
 .main-title{
@@ -258,17 +260,7 @@ body{
 		padding-bottom: 20px;
 	}
 
-	#content{
-		margin-top: 40%;
-	}
 }
-
-@media (max-width: 360px){
-	#content{
-		margin-top: 30%;
-	}
-}
-
 
 @media(min-width:1200px){
 	.main-title{
@@ -438,6 +430,17 @@ footer .container, .footer-content{
 	.footer-copyright{
 		float:none;
 	}
+
+	main{
+		background-image: url(https://www-growth.scdn.co/static/home/bursts-mobile.svg);
+    	background-position: center top 30%;
+    	background-repeat: no-repeat;
+    	background-size: 195%;
+    }
+
+    #content{
+    	padding: 50px;
+    }
 }
 
 /** Footer **/
