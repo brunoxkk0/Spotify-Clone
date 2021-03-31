@@ -459,4 +459,8 @@ footer .container, .footer-content{
 	transform: translateX(-50%);
 }
 
+.login-modal-active{
+	display: block;
+}
+
 /** Login Modal **/
