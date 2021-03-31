@@ -444,3 +444,19 @@ footer .container, .footer-content{
 }
 
 /** Footer **/
+
+
+/** Login Modal **/
+
+.login-modal{
+	display: none;
+	position: absolute;
+	width:800px;
+	height:500px;
+	background-color:#FFF;
+	top:30%;
+	left:50%;
+	transform: translateX(-50%);
+}
+
+/** Login Modal **/
