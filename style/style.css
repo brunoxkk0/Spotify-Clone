@@ -463,4 +463,25 @@ footer .container, .footer-content{
 	display: block;
 }
 
+.login-modal form input{
+	display: block;
+}
+
+.login-modal form{
+	display: block;
+	position: relative;
+	height: 500px;
+}
+
+.login-button{
+	text-transform: uppercase;
+	border-radius:500px;
+	padding: 14px 32px;
+	color:#2941AB;
+	background-color:#1ED760;
+	font-weight: 700;
+	border:none;
+	cursor: pointer;
+}
+
 /** Login Modal **/

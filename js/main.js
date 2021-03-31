@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	for(let i = 0; i < signInButtons.length; i++)
 		signInButtons.item(i).addEventListener("click", onLoginClick);
-
+	
 });
 
 function onLoginClick() {
