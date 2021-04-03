@@ -10,7 +10,30 @@
 		<script src="js/main.js" type="text/javascript"></script>
 	</head>
 
-	<body>
+	<body class="site-body">
+
+		<div class="login-modal">
+			<div class="modal-header">
+				<i class="close-button">X</i>
+			</div>
+			<div class="modal-main">
+				<div class="login-form-box">
+					<form action="#" method="post">
+						<label for="login-username">E-mail</label>
+						<input type="text" name="login-username" placeholder="E-mail">
+
+						<label for="login-password">Password</label>
+						<input type="password" name="login-password" placeholder="Password">
+						<div class="login-button-box">
+							<button class="login-button">Login</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="login-modal-background"></div>
+
 		<header>
 			<div class="container">
 				<div class="logo-box">
@@ -177,16 +200,5 @@
 			</div>
 		</footer>	
 
-		<div class="login-modal">
-			<form action="#">
-				<label for="login-username">Login</label>
-				<input type="text" name="login-username">
-
-				<label for="login-password">Password</label>
-				<input type="password" name="login-password">
-
-				<button class="login-button">Login</button>
-			</form>
-		</div>
 	</body>
 </html>

@@ -449,7 +449,8 @@ footer .container, .footer-content{
 /** Login Modal **/
 
 .login-modal{
-	display: none;
+	visibility: hidden;
+	opacity: 0;
 	position: absolute;
 	width:800px;
 	height:500px;
@@ -457,20 +458,27 @@ footer .container, .footer-content{
 	top:30%;
 	left:50%;
 	transform: translateX(-50%);
+	box-shadow: 0 0 12px 2px rgb(0 0 0 / 60%);
 }
 
 .login-modal-active{
-	display: block;
+	visibility: visible;
+	opacity: 1;
+	z-index:902;
 }
 
 .login-modal form input{
 	display: block;
+	width: 340px;
+	height: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .login-modal form{
 	display: block;
 	position: relative;
-	height: 500px;
+	height: 390px;
 }
 
 .login-button{
@@ -484,4 +492,56 @@ footer .container, .footer-content{
 	cursor: pointer;
 }
 
+.login-form-box{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form-box form{
+	margin-top: 90px;
+}
+
+.login-button{
+	width:220px;
+}
+
+.login-button-box{
+	text-align: center;
+}
+
+.login-modal-background{
+	width: 100vw;
+    height: 100vh;
+    background-color: rgba(51,51,51,.60);
+    position: fixed;
+    z-index:901;
+    visibility: hidden;
+    filter: drop-shadow(1px 4px 6px black);
+}
+
+.login-m-background-active{
+	visibility: visible;
+}
+
+.disable-scroll{
+	overflow-y: hidden;
+}
+
+.modal-header{
+	height:30px;
+}
+
+.modal-footer{
+	height:30px;
+}
+
+.close-button{
+	cursor:pointer;
+	font-style: normal;
+	float:right;
+	margin-top:5px;
+	margin-right:10px;
+}
 /** Login Modal **/
