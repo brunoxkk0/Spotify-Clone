@@ -58,27 +58,6 @@ function onSignInRequest(){
 	}
 }
 
-function requestLogin(email, password, callback){
-
-	let request = new XMLHttpRequest();
-
-	request.open("POST", "https://reqres.in/api/login", true);
-	request.setRequestHeader("Content-Type", "application/json; charset=utf-8")
-	request.onreadystatechange = function () {
-
-		if(request.readyState !== 4){
-			return;
-		}
-
-		callback(JSON.parse(request.responseText));	
-	};
-
-	request.send(JSON.stringify({
-		email: email,
-		password: password
-	}));
-}
-
 function setErrorFields(){
 	if(usernameField.value == ""){
 		usernameField.classList.add("error-field");
