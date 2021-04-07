@@ -42,11 +42,18 @@ function onSignInRequest(){
 
 	let usernameField = document.querySelector(".login-username-field");
 	let passwordField = document.querySelector(".login-password-field");
+	let loginBoxError = document.querySelector(".login-box-error");
 
 	if(usernameField.value != null && passwordField.value != null){
-		requestLogin(usernameField.value, passwordField.value, function (token){
-			console.log("Token encontrado: " + token);
-		})
+		requestLogin(usernameField.value, passwordField.value, function (response){
+			if(response.error){
+				loginBoxError.classList.add("active-error");
+				loginBoxError.innerHTML = response.error;
+				setErrorFields();
+			}else{
+				localStorage.setItem("loginToken",response.token)
+			}
+		});
 	}
 }
 
@@ -58,14 +65,29 @@ function requestLogin(email, password, callback){
 	request.setRequestHeader("Content-Type", "application/json; charset=utf-8")
 	request.onreadystatechange = function () {
 
-		if(request.readyState === 4 && request.status === 200){
-			callback(JSON.parse(request.responseText).token);
+		if(request.readyState !== 4){
+			return;
 		}
 
+		callback(JSON.parse(request.responseText));	
 	};
 
 	request.send(JSON.stringify({
 		email: email,
 		password: password
 	}));
+}
+
+function setErrorFields(){
+	if(usernameField.value == ""){
+		usernameField.classList.add("error-field");
+	}else{
+		usernameField.classList.remove("error-field");
+	}
+
+	if(passwordField.value == ""){
+		passwordField.classList.add("error-field");
+	}else{
+		passwordField.classList.remove("error-field");
+	}
 }

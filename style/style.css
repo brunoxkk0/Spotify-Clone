@@ -500,7 +500,7 @@ footer .container, .footer-content{
 }
 
 .login-form-box form{
-	margin-top: 90px;
+	margin-top: 52px;
 }
 
 .login-button{
@@ -543,5 +543,24 @@ footer .container, .footer-content{
 	float:right;
 	margin-top:5px;
 	margin-right:10px;
+}
+
+.error-field{
+	border:1px solid #ff6961;
+}
+
+.login-box-error{
+	width: 346px;
+	height: 50px;
+	margin-bottom: 22px;
+	background-color: #ff6961;
+	display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease-in;
+}
+
+.active-error{
+	display: flex;
 }
 /** Login Modal **/
