@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function(){
 		event.preventDefault();
 		onSignInRequest();
 	})
-
 });
 
 function activeModal() {
@@ -51,8 +50,8 @@ function onSignInRequest(){
 				loginBoxError.innerHTML = response.error;
 				setErrorFields();
 			}else{
-				localStorage.setItem("loginToken",response.token)
-				checkSpotifyAuth()
+				localStorage.setItem("loginToken",response.token);
+				checkSpotifyAuth();
 			}
 		});
 	}
@@ -85,7 +84,7 @@ function requestLogin(email, password, callback){
 		}
 
 		if(request.status === 200){
-			callback(JSON.parse(request.responseText).token);
+			callback(JSON.parse(request.responseText));
 		}
 
 	};
