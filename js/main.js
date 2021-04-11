@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
+	checkInvalidAccess();
 	let signInButtons = document.getElementsByClassName("signin-button");
 	let loginModalBackground = document.querySelector(".login-modal-background");
 	let loginModalClose = document.querySelector(".close-button");
@@ -50,6 +51,7 @@ function onSignInRequest(){
 				setErrorFields();
 			}else{
 				localStorage.setItem("loginToken",response.token);
+				redirectToSearch();
 			}
 		});
 	}
@@ -91,4 +93,20 @@ function requestLogin(email, password, callback){
 		email: email,
 		password: password
 	}));
+}
+
+function redirectToSearch(){
+	window.location.href = "userIsLogged.html"
+}
+
+function checkInvalidAccess(){
+	let data = new URLSearchParams(window.location.search);
+	let invalidAccess = data.get("invalidAccess");
+	let loginBoxError = document.querySelector(".login-box-error");
+
+	if(invalidAccess != null){
+		loginBoxError.classList.add("active-error");
+		loginBoxError.innerHTML = "Você precisa realizar o login";
+		activeModal();
+	}
 }
