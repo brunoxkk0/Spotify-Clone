@@ -564,3 +564,51 @@ footer .container, .footer-content{
 	display: flex;
 }
 /** Login Modal **/
+
+
+/** Caixa de pesquisa **/
+
+.search-box{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width:800px;
+	height:500px;
+	background-color:#FFF;
+	filter: drop-shadow(1px 4px 6px black);
+}
+
+.search-box input{
+	display: block;
+    width: 340px;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#search-content{
+	top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box form{
+	/** margin-top: 52px; **/
+}
+
+.search-button{
+	text-transform: uppercase;
+	border-radius:500px;
+	padding: 14px 32px;
+	color:#2941AB;
+	background-color:#1ED760;
+	font-weight: 700;
+	border:none;
+	cursor: pointer;
+}
+
+/** Caixa de pesquisa **/

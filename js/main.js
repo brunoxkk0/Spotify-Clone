@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	loginForm.addEventListener("submit", function (event){
 		event.preventDefault();
 		onSignInRequest();
-	})
+	});
 });
 
 function activeModal() {
