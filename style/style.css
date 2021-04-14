@@ -446,8 +446,9 @@ footer .container, .footer-content{
 /** Footer **/
 
 
-/** Login Modal **/
+/** Login & Register Modal **/
 
+.register-modal,
 .login-modal{
 	visibility: hidden;
 	opacity: 0;
@@ -461,12 +462,14 @@ footer .container, .footer-content{
 	box-shadow: 0 0 12px 2px rgb(0 0 0 / 60%);
 }
 
+.register-modal-active,
 .login-modal-active{
 	visibility: visible;
 	opacity: 1;
 	z-index:902;
 }
 
+.register-modal form input,
 .login-modal form input{
 	display: block;
 	width: 340px;
@@ -475,12 +478,14 @@ footer .container, .footer-content{
 	margin-bottom: 20px;
 }
 
+.register-modal form,
 .login-modal form{
 	display: block;
 	position: relative;
 	height: 390px;
 }
 
+.register-button,
 .login-button{
 	text-transform: uppercase;
 	border-radius:500px;
@@ -492,6 +497,7 @@ footer .container, .footer-content{
 	cursor: pointer;
 }
 
+.register-form-box,
 .login-form-box{
 	display: flex;
 	flex-direction: row;
@@ -499,18 +505,22 @@ footer .container, .footer-content{
 	align-items: center;
 }
 
+.register-form-box form,
 .login-form-box form{
 	margin-top: 52px;
 }
 
+.register-button,
 .login-button{
 	width:220px;
 }
 
+.register-button-box,
 .login-button-box{
 	text-align: center;
 }
 
+.register-modal-background,
 .login-modal-background{
 	width: 100vw;
     height: 100vh;
@@ -521,6 +531,7 @@ footer .container, .footer-content{
     filter: drop-shadow(1px 4px 6px black);
 }
 
+.register-m-background-active,
 .login-m-background-active{
 	visibility: visible;
 }
@@ -537,7 +548,8 @@ footer .container, .footer-content{
 	height:30px;
 }
 
-.close-button{
+.close-register-button,
+.close-login-button{
 	cursor:pointer;
 	font-style: normal;
 	float:right;
@@ -549,6 +561,7 @@ footer .container, .footer-content{
 	border:1px solid #ff6961;
 }
 
+.register-box-error,
 .login-box-error{
 	width: 346px;
 	height: 50px;
@@ -563,7 +576,7 @@ footer .container, .footer-content{
 .active-error{
 	display: flex;
 }
-/** Login Modal **/
+/** Login & Register Modal **/
 
 
 /** Caixa de pesquisa **/

@@ -13,7 +13,7 @@
 	<body class="site-body">
 		<div class="login-modal">
 			<div class="modal-header">
-				<i class="close-button">X</i>
+				<i class="close-login-button">X</i>
 			</div>
 			<div class="modal-main">
 				<div class="login-form-box">
@@ -36,6 +36,33 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="register-modal">
+			<div class="modal-header">
+				<i class="close-register-button">X</i>
+			</div>
+			<div class="modal-main">
+				<div class="register-form-box">
+
+					<form class="register-form" action="#" method="post">
+						<div class="register-box-error">
+							<p class="error-message"></p>
+						</div>
+
+						<label for="register-username">E-mail</label>
+						<input class="register-username-field" type="text" id="register-username" placeholder="E-mail">
+
+						<label for="register-password">Password</label>
+						<input class="register-password-field" type="password" id="register-password" placeholder="Password">
+
+						<div class="register-button-box">
+							<button class="register-button" type="submit">Registrar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="register-modal-background"></div>
 		<div class="login-modal-background"></div>
 		<header>
 			<div class="container">
@@ -63,7 +90,7 @@
 							</li>
 							<li class="mobile-menu-separator"></li>
 							<li>
-								<a class="mobile-link-secondary" href="#">Inscrever-se</a>
+								<a class="mobile-link-secondary signup-button" href="#">Inscrever-se</a>
 							</li>
 							<li>
 								<a class="mobile-link-secondary signin-button" href="#" >Entrar</a>
@@ -89,7 +116,7 @@
 						</li>
 						<li>|</li>
 						<li>
-							<a href="#">Inscrever-se</a>
+							<a href="#" class="signup-button">Inscrever-se</a>
 						</li>
 						<li>
 							<a href="#" class="signin-button">Entrar</a>

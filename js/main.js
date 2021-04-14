@@ -1,15 +1,31 @@
 document.addEventListener('DOMContentLoaded', function(){
 	checkInvalidAccess();
+
 	let signInButtons = document.getElementsByClassName("signin-button");
 	let loginModalBackground = document.querySelector(".login-modal-background");
-	let loginModalClose = document.querySelector(".close-button");
+	let loginModalClose = document.querySelector(".close-login-button");
 	let loginForm = document.querySelector(".login-form");
 
-	loginModalBackground.addEventListener("click", disableModal);
-	loginModalClose.addEventListener("click", disableModal);
+	let signUpButtons = document.getElementsByClassName("signup-button");
+	let registerModalBackground = document.querySelector(".register-modal-background");
+	let registerModalClose = document.querySelector(".close-register-button");
+	let signUpForm = document.querySelector(".register-form");
 
-	for(let i = 0; i < signInButtons.length; i++)
-		signInButtons.item(i).addEventListener("click", activeModal);
+	loginModalBackground.addEventListener("click", disableLoginModal);
+	loginModalClose.addEventListener("click", disableLoginModal);
+
+	registerModalBackground.addEventListener("click", disableRegisterModal);
+	registerModalClose.addEventListener("click", disableRegisterModal);
+
+	for(let i = 0; i < signUpButtons.length; i++){
+		signInButtons.item(i).addEventListener("click", activeLoginModal);
+		signUpButtons.item(i).addEventListener("click", activeRegisterModal);
+	}
+	
+	signUpForm.addEventListener("submit", function (event){
+		event.preventDefault();
+		onSignUpRequest();
+	});
 
 	loginForm.addEventListener("submit", function (event){
 		event.preventDefault();
@@ -17,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	});
 });
 
-function activeModal() {
+function activeLoginModal() {
 	let doc = document.querySelector(".login-modal");
 	let body = document.querySelector(".site-body");
 	let modalBackground = document.querySelector(".login-modal-background");
@@ -27,7 +43,7 @@ function activeModal() {
 	modalBackground.classList.add("login-m-background-active");
 }
 
-function disableModal(){
+function disableLoginModal(){
 	let doc = document.querySelector(".login-modal");
 	let body = document.querySelector(".site-body");
 	let modalBackground = document.querySelector(".login-modal-background");
@@ -35,6 +51,26 @@ function disableModal(){
 	body.classList.remove("disable-scroll");
 	doc.classList.remove("login-modal-active");
 	modalBackground.classList.remove("login-m-background-active");
+}
+
+function activeRegisterModal(prefix) {
+	let doc = document.querySelector(".register-modal");
+	let body = document.querySelector(".site-body");
+	let modalBackground = document.querySelector(".register-modal-background");
+
+	body.classList.add("disable-scroll");
+	doc.classList.add("register-modal-active");
+	modalBackground.classList.add("register-m-background-active");
+}
+
+function disableRegisterModal(prefix){
+	let doc = document.querySelector(".register-modal");
+	let body = document.querySelector(".site-body");
+	let modalBackground = document.querySelector(".register-modal-background");
+
+	body.classList.remove("disable-scroll");
+	doc.classList.remove("register-modal-active");
+	modalBackground.classList.remove("register-m-background-active");
 }
 
 function onSignInRequest(){
@@ -48,6 +84,26 @@ function onSignInRequest(){
 			if(response.error){
 				loginBoxError.classList.add("active-error");
 				loginBoxError.innerHTML = response.error;
+				setErrorFields();
+			}else{
+				localStorage.setItem("loginToken",response.token);
+				redirectToSearch();
+			}
+		});
+	}
+}
+
+function onSignUpRequest(){
+
+	let usernameField = document.querySelector(".register-username-field");
+	let passwordField = document.querySelector(".register-password-field");
+	let registerBoxError = document.querySelector(".register-box-error");
+
+	if(usernameField.value != null && passwordField.value != null){
+		requestRegister(usernameField.value, passwordField.value, function (response){
+			if(response.error){
+				registerBoxError.classList.add("active-error");
+				registerBoxError.innerHTML = response.error;
 				setErrorFields();
 			}else{
 				localStorage.setItem("loginToken",response.token);
@@ -83,9 +139,7 @@ function requestLogin(email, password, callback){
 			return;
 		}
 
-		if(request.status === 200){
-			callback(JSON.parse(request.responseText));
-		}
+		callback(JSON.parse(request.responseText));
 
 	};
 
@@ -93,6 +147,29 @@ function requestLogin(email, password, callback){
 		email: email,
 		password: password
 	}));
+}
+
+function requestRegister(email, password, callback){
+
+    let request = new XMLHttpRequest();
+
+    request.open("POST", "https://reqres.in/api/register", true);
+    request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+
+    request.onreadystatechange = function () {
+
+        if(request.readyState !== 4){
+            return;
+        }
+
+        callback(JSON.parse(request.responseText));
+    };
+
+    request.send(JSON.stringify({
+        email: email,
+        password: password
+    }));
+    
 }
 
 function redirectToSearch(){
