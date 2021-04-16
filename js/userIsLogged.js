@@ -3,6 +3,14 @@ document.addEventListener("DOMContentLoaded", function(){
 		redirectToHomepage({name:"invalidAccess", value:"1"});
 	}
 	document.querySelector(".logoff-button").addEventListener("click", logout);
+
+
+	let searchForm = document.querySelector(".search-form");
+
+	searchForm.addEventListener("submit", function(e){
+		e.preventDefault();
+		onSearchRequest();
+	});
 });
 
 function redirectToHomepage(param){
@@ -99,4 +107,31 @@ function searchLyric(music, callback){
 	};
 
 	request.send();
+}
+
+function onSearchRequest(){
+	let searchQuery = document.querySelector(".music-field").value;
+
+	search(searchQuery, 12, function(res){
+		showResults(res);
+	});
+}
+
+function showResults(res){
+
+	let searchBox = document.querySelector(".search-box");
+	let form = document.querySelector(".search-form");
+	let list = document.querySelector(".music-box");
+	form.style.display = 'none';
+
+	for(let i = 0; i < res.length; i++){
+		let img = document.createElement("img");
+		img.classList.add("music-img");
+		img.src = res[i].album.cover;
+		
+		list.appendChild(img);
+
+	}
+	searchBox.appendChild(list);
+	list.classList.add("mbox-active");
 }

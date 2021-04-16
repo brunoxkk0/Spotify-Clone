@@ -579,7 +579,7 @@ footer .container, .footer-content{
 /** Login & Register Modal **/
 
 
-/** Caixa de pesquisa **/
+/** Search Box **/
 
 .search-box{
 	display: flex;
@@ -624,4 +624,37 @@ footer .container, .footer-content{
 	cursor: pointer;
 }
 
-/** Caixa de pesquisa **/
+/**  Search Box **/
+
+/** Music box **/
+
+.music-box{
+	display: none;
+}
+
+.mbox-active{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.music-img{
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.sbox-header{
+	display: block;
+	height:50px;
+	background-color:#000;
+}
+
+.sbox-header-active{
+	display: block;
+	height:50px;
+	background-color:#000;
+}
+
+/** Music box **/
