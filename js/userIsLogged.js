@@ -112,7 +112,7 @@ function searchLyric(music, callback){
 function onSearchRequest(){
 	let searchQuery = document.querySelector(".music-field").value;
 
-	search(searchQuery, 12, function(res){
+	search(searchQuery, 15, function(res){
 		showResults(res);
 	});
 }
@@ -126,12 +126,22 @@ function showResults(res){
 
 	for(let i = 0; i < res.length; i++){
 		let img = document.createElement("img");
-		img.classList.add("music-img");
-		img.src = res[i].album.cover;
-		
-		list.appendChild(img);
+		let div = document.createElement("div");
+		let p = document.createElement("p");
 
+		img.classList.add("music-img");
+		p.classList.add("music-name");
+		div.classList.add("music-details");
+
+		img.src = res[i].album.cover;
+		p.innerHTML = res[i].title;
+		p.setAttribute("data-artist",res[i].artist.name);
+
+		div.appendChild(img);
+		div.appendChild(p);
+		list.appendChild(div);
 	}
+
 	searchBox.appendChild(list);
 	list.classList.add("mbox-active");
 }
