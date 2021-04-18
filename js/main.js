@@ -87,16 +87,22 @@ function onSignInRequest(){
 	let loginBoxError = document.querySelector(".login-box-error");
 
 	if(usernameField.value != null && passwordField.value != null){
-		requestLogin(usernameField.value, passwordField.value, function (response){
-			if(response.error){
-				loginBoxError.classList.add("active-error");
-				loginBoxError.innerHTML = response.error;
-				setErrorFields();
-			}else{
-				localStorage.setItem("loginToken", response.token);
-				redirectToSearch();
-			}
-		});
+		if(usernameField.value.length < 3 || passwordField.value.length < 3){
+			loginBoxError.classList.add("active-error");
+			loginBoxError.innerHTML = "Os dados inseridos precisam ter mais que 3 caracteres";
+			setErrorFields(usernameField, passwordField);
+		}else{
+			requestLogin(usernameField.value, passwordField.value, function (response){
+				if(response.error){
+					loginBoxError.classList.add("active-error");
+					loginBoxError.innerHTML = response.error;
+					setErrorFields(usernameField, passwordField);
+				}else{
+					localStorage.setItem("loginToken", response.token);
+					redirectToSearch();
+				}
+			});
+		}
 	}
 }
 
@@ -107,27 +113,34 @@ function onSignUpRequest(){
 	let registerBoxError = document.querySelector(".register-box-error");
 
 	if(usernameField.value != null && passwordField.value != null){
-		requestRegister(usernameField.value, passwordField.value, function (response){
-			if(response.error){
-				registerBoxError.classList.add("active-error");
-				registerBoxError.innerHTML = response.error;
-				setErrorFields();
-			}else{
-				localStorage.setItem("loginToken",response.token);
-				redirectToSearch();
-			}
-		});
+
+		if(usernameField.value.length < 3 || passwordField.value.length < 3){
+			registerBoxError.classList.add("active-error");
+			registerBoxError.innerHTML = "Os dados inseridos precisam ter mais que 3 caracteres";
+			setErrorFields(usernameField, passwordField);
+		}else{
+			requestRegister(usernameField.value, passwordField.value, function (response){
+				if(response.error){
+					registerBoxError.classList.add("active-error");
+					registerBoxError.innerHTML = response.error;
+					setErrorFields(usernameField, passwordField);
+				}else{
+					localStorage.setItem("loginToken",response.token);
+					redirectToSearch();
+				}
+			});
+		}
 	}
 }
 
-function setErrorFields(){
-	if(usernameField.value == ""){
+function setErrorFields(usernameField, passwordField){
+	if(usernameField.value == "" || usernameField.length < 3){
 		usernameField.classList.add("error-field");
 	}else{
 		usernameField.classList.remove("error-field");
 	}
 
-	if(passwordField.value == ""){
+	if(passwordField.value == "" || passwordField.length < 3){
 		passwordField.classList.add("error-field");
 	}else{
 		passwordField.classList.remove("error-field");
