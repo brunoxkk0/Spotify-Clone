@@ -209,3 +209,9 @@ function addMusicEvents(){
         });
     }
 }
+
+function addBackButton(){
+	let backButton = document.querySelector(".back-button");
+
+	backButton.style.display = "block";
+}

@@ -698,4 +698,9 @@ footer .container, .footer-content{
 	margin-top: 10px;
     text-decoration: underline;
 }
+
+.back-button{
+	display: none;
+	margin-top: 37px;
+}
 /** Music box **/
