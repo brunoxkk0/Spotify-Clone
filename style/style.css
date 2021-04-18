@@ -21,6 +21,9 @@ body{
 	}
 }
 
+.disable{
+	display: none;
+}
 
 .container{
 	max-width:1170px;
@@ -29,6 +32,11 @@ body{
 
 
 /** Header **/
+
+.home .logout-button{
+	display: none;
+}
+
 header{
 	background-color: #000;
 	color: #FFF;
@@ -234,7 +242,7 @@ body{
 	padding-bottom:24px;
 }
 
-.spotify-download{
+.spotify-search{
 	text-transform: uppercase;
 	border-radius:500px;
 	padding: 14px 32px;
@@ -245,7 +253,7 @@ body{
 	cursor: pointer;
 }
 
-.spotify-download-link{
+.spotify-search-link{
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -609,10 +617,6 @@ footer .container, .footer-content{
     justify-content: center;
 }
 
-.search-box form{
-	/** margin-top: 52px; **/
-}
-
 .search-button{
 	text-transform: uppercase;
 	border-radius:500px;
@@ -641,8 +645,8 @@ footer .container, .footer-content{
 
 .sbox-header{
 	display: block;
-	height:50px;
-	background-color:#000;
+    height: 50px;
+    background-color: #000;
 }
 
 .sbox-header-active{
@@ -672,9 +676,26 @@ footer .container, .footer-content{
     cursor: pointer;
 }
 
-.lyrics-main-box{
-	display: flex;
-    flex-direction: row;
-    justify-content: center;
+.lyric-box{
+	width: 632px;
+	height: 739px;
+	text-align: center;
+}
+
+.lyric-box .music-img{
+	width: 160px;
+    margin-top: 20px;
+}
+
+.lyric{
+	overflow: auto;
+    height: 460px;
+    white-space: break-spaces;
+    margin-top: 20px;
+}
+
+.music-title{
+	margin-top: 10px;
+    text-decoration: underline;
 }
 /** Music box **/

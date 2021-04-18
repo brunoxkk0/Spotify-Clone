@@ -2,15 +2,20 @@ document.addEventListener("DOMContentLoaded", function(){
 	if(!isLoggedIn()){
 		redirectToHomepage({name:"invalidAccess", value:"1"});
 	}
-	document.querySelector(".logoff-button").addEventListener("click", logout);
-
 
 	let searchForm = document.querySelector(".search-form");
+	let logoffButton = document.querySelector(".logoff-button");
 
-	searchForm.addEventListener("submit", function(e){
-		e.preventDefault();
-		onSearchRequest();
-	});
+	if(logoffButton){
+		logoffButton.addEventListener("click", logout);
+	}
+	
+	if(searchForm){
+		searchForm.addEventListener("submit", function(e){
+			e.preventDefault();
+			onSearchRequest();
+		});
+	}
 });
 
 function redirectToHomepage(param){
@@ -84,11 +89,11 @@ function search(query, limit, callback){
 	request.send();
 }
 
-function searchLyric(music, callback){
+function searchLyric(artist, music, callback){
 
 	let request = new XMLHttpRequest();
 
-	request.open("GET", "https://api.lyrics.ovh/v1/" + music.artist.name + "/" + music.title, true);
+	request.open("GET", "https://api.lyrics.ovh/v1/" + artist + "/" + music, true);
 	request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
 	request.onreadystatechange = function () {
@@ -128,7 +133,7 @@ function showResults(res){
 		let img = document.createElement("img");
 		let div = document.createElement("div");
 		let p = document.createElement("p");
-
+		
 		img.classList.add("music-img");
 		p.classList.add("music-name");
 		div.classList.add("music-details");
@@ -144,4 +149,63 @@ function showResults(res){
 
 	searchBox.appendChild(list);
 	list.classList.add("mbox-active");
+	addMusicEvents();
+	addBackButton();
+}
+
+function showLyric(event){
+    let target = event.target.parentNode;
+    let musicBox = document.querySelector(".music-box");
+    let lyricBox = document.createElement("div");
+    let musicTitle = document.createElement("h4");
+    
+    let cover = target.firstElementChild;
+    let musicName = target.lastElementChild.innerHTML;
+    let artistName = target.lastElementChild.getAttribute("data-artist");
+
+    cleanMusics(musicBox);
+
+    lyricBox.classList.add("lyric-box");
+    musicTitle.classList.add("music-title");
+
+    musicTitle.innerHTML = musicName;
+
+    lyricBox.appendChild(cover);
+    lyricBox.appendChild(musicTitle);
+    musicBox.appendChild(lyricBox); 
+
+    searchLyric(artistName, musicName, setLyric);
+
+}
+
+function setLyric(response){
+	let lyricBox = document.querySelector(".lyric-box");
+	let lyric = document.createElement("div");
+
+	lyric.classList.add("lyric");
+
+	if(response){
+		lyric.innerHTML = response.lyrics;
+	}else{
+		lyric.innerHTML = "Não possível encontrar a letra!";
+	}
+	
+
+	lyricBox.insertAdjacentElement("beforeend", lyric);
+}
+
+function cleanMusics(musicBox){
+    while (musicBox.firstChild) {
+        musicBox.removeChild(musicBox.firstChild);
+    }
+}
+
+function addMusicEvents(){
+    let musics = document.getElementsByClassName("music-details");
+
+    for(let i = 0; i < musics.length; i++){
+        musics.item(i).addEventListener("click", function(e){
+            showLyric(e);
+        });
+    }
 }

@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function(){
 	checkInvalidAccess();
 
+	if(localStorage.getItem("loginToken")){
+		showlogoutBtn();
+	}
+
 	let signInButtons = document.getElementsByClassName("signin-button");
+	let logoutButton = document.querySelector(".logout-button");
 	let loginModalBackground = document.querySelector(".login-modal-background");
 	let loginModalClose = document.querySelector(".close-login-button");
 	let loginForm = document.querySelector(".login-form");
@@ -10,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	let registerModalBackground = document.querySelector(".register-modal-background");
 	let registerModalClose = document.querySelector(".close-register-button");
 	let signUpForm = document.querySelector(".register-form");
+
+	logoutButton.addEventListener("click", logoutHome);
 
 	loginModalBackground.addEventListener("click", disableLoginModal);
 	loginModalClose.addEventListener("click", disableLoginModal);
@@ -184,8 +191,34 @@ function checkInvalidAccess(){
 	if(invalidAccess != null){
 		loginBoxError.classList.add("active-error");
 		loginBoxError.innerHTML = "Você precisa realizar o login";
-		activeModal();
+		activeLoginModal();
 	}
 }
 
+function logoutHome(){
+	let token = localStorage.removeItem("loginToken");
 
+	let signUp = document.getElementsByClassName("signup-button");
+	let signIn = document.getElementsByClassName("signin-button");
+	let logoutButton = document.querySelector(".logout-button");
+
+	for(let i = 0; i < 2; i++){
+		signUp.item(i).classList.remove("disable");
+		signIn.item(i).classList.remove("disable");
+	}
+
+	logoutButton.style.display = "none";
+}
+
+function showlogoutBtn(){
+	let signUp = document.getElementsByClassName("signup-button");
+	let signIn = document.getElementsByClassName("signin-button");
+	let logoutButton = document.querySelector(".logout-button");
+
+	for(let i = 0; i < 2; i++){
+		signUp.item(i).classList.add("disable");
+		signIn.item(i).classList.add("disable");
+	}
+
+	logoutButton.style.display = "inline";
+}
