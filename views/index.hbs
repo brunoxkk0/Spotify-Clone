@@ -1,69 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt">
     <head>
-        <title>Escutar muda tudo - Spotify</title>
+        <title>{{title}}</title>
         <link rel="stylesheet" type="text/css" href="public/stylesheets/reset.css"/>
-        <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../public/stylesheets/index.css"/>
         <link rel="shortcut icon" href="public/images/favicon.ico" />
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-        <script src="public/javascripts/main.js" type="text/javascript"></script>
+        <script src="../public/javascripts/index.js" type="text/javascript"></script>
     </head>
 
     <body class="site-body">
-        <div class="login-modal">
-            <div class="modal-header">
-                <i class="close-login-button">X</i>
-            </div>
-            <div class="modal-main">
-                <div class="login-form-box">
-
-                    <form class="login-form" action="#" method="post">
-                        <div class="login-box-error">
-                            <p class="error-message"></p>
-                        </div>
-
-                        <label for="login-username">E-mail</label>
-                        <input class="login-username-field" type="text" id="login-username" placeholder="E-mail">
-
-                        <label for="login-password">Password</label>
-                        <input class="login-password-field" type="password" id="login-password" placeholder="Password">
-
-                        <div class="login-button-box">
-                            <button class="login-button" type="submit">Login</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="register-modal">
-            <div class="modal-header">
-                <i class="close-register-button">X</i>
-            </div>
-            <div class="modal-main">
-                <div class="register-form-box">
-
-                    <form class="register-form" action="#" method="post">
-                        <div class="register-box-error">
-                            <p class="error-message"></p>
-                        </div>
-
-                        <label for="register-username">E-mail</label>
-                        <input class="register-username-field" type="text" id="register-username" placeholder="E-mail">
-
-                        <label for="register-password">Password</label>
-                        <input class="register-password-field" type="password" id="register-password" placeholder="Password">
-
-                        <div class="register-button-box">
-                            <button class="register-button" type="submit">Registrar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="register-modal-background"></div>
-        <div class="login-modal-background"></div>
         <header>
             <div class="container home">
                 <div class="logo-box">
@@ -90,7 +37,7 @@
                             </li>
                             <li class="mobile-menu-separator"></li>
                             <li>
-                                <a class="mobile-link-secondary signup-button" href="#">Inscrever-se</a>
+                                <a class="mobile-link-secondary signup-button" href="users/create">Inscrever-se</a>
                             </li>
                             <li>
                                 <a class="mobile-link-secondary signin-button" href="#" >Entrar</a>
@@ -116,7 +63,7 @@
                         </li>
                         <li>|</li>
                         <li>
-                            <a href="#" class="signup-button">Inscrever-se</a>
+                            <a href="users/create" class="signup-button">Inscrever-se</a>
                         </li>
                         <li>
                             <a href="#" class="signin-button">Entrar</a>
@@ -128,20 +75,17 @@
                 </nav>
             </div>
         </header>
-
         <main>
             <div id="content">
                 <div>
                     <h1 class="main-title">Escutar muda tudo</h1>
                     <p class="subtitle">Milhões de músicas e podcasts para explorar. E nem precisa de cartão de crédito.</p>
-
-                    <a class="spotify-search-link" href="userIsLogged.html">
+                    <a class="spotify-search-link" href="#">
                         <button class="spotify-search">Buscar letras</button>
                     </a>
                 </div>
             </div>
         </main>
-
         <footer>
             <div class="container">
                 <div class="footer-content">

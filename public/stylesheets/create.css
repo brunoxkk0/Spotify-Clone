@@ -1,0 +1,53 @@
+.create-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.create-form{
+    width: 600px;
+    height: 650px;
+    background-color: #FFF;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.create-form input{
+    display: block;
+    height: 50px;
+    width: 400px;
+    margin-bottom:30px;
+}
+
+.is_adm_code_box{
+    display: none;
+}
+
+.active{
+    display: block;
+}
+
+#is_adm{
+    width: 17px;
+    height: 16px;
+    display: inline;
+}
+
+body{
+    background:none;
+}
+
+.create-submit{
+    border-radius: 500px;
+    padding: 14px 32px;
+    color: #000000;
+    background-color: #1ED760;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
