@@ -7,6 +7,11 @@ router.get('/create', function(req, res, next) {
   res.render('create',{title: "Spotify - Criar Conta"});
 });
 
+/* GET users login. */
+router.get('/login', function(req, res, next) {
+    res.render('login',{title: "Spotify - Login"});
+});
+
 /* Save users - POST */
 router.post('/save', function(req, res, next) {
     model.insertUsers(req).then((result) => {
@@ -18,6 +23,12 @@ router.post('/save', function(req, res, next) {
     });
 
     res.redirect('/');
+    res.end();
+});
+
+/* Login users - POST */
+router.post('/auth', function(req, res, next){
+    res.write('LOGIN');
     res.end();
 });
 
