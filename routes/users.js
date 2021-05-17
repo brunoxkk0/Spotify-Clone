@@ -9,6 +9,9 @@ router.get('/create', function(req, res, next) {
 
 /* GET users login. */
 router.get('/login', function(req, res, next) {
+    if(req.session && req.session.login){
+        res.redirect('/users/test');
+    }
     res.render('login',{title: "Spotify - Login"});
 });
 
@@ -28,8 +31,26 @@ router.post('/save', function(req, res, next) {
 
 /* Login users - POST */
 router.post('/auth', function(req, res, next){
-    res.write('LOGIN');
-    res.end();
+    let username = req.body.username;
+    let password = req.body.password;
+
+    model.getUser(username).then((result) => {
+        if(result.length > 0){
+            let userData = result[0];
+
+            if(password === userData.password){
+                req.session.login = username;
+                res.redirect('/users/test');
+            }
+        }else{
+            res.redirect('/');
+        }
+    });
 });
+
+router.get('/test', function(req, res, next){
+    res.write("Welcome: "+req.session.login);
+    res.end();
+})
 
 module.exports = router;
