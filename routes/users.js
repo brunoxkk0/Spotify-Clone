@@ -10,7 +10,7 @@ router.get('/create', function(req, res, next) {
 /* GET users login. */
 router.get('/login', function(req, res, next) {
     if(req.session && req.session.login){
-        res.redirect('/users/test');
+        res.redirect('/users/dashboard');
     }
     res.render('login',{title: "Spotify - Login"});
 });
@@ -40,7 +40,7 @@ router.post('/auth', function(req, res, next){
 
             if(password === userData.password){
                 req.session.login = username;
-                res.redirect('/users/test');
+                res.redirect('/users/profile');
             }
         }else{
             res.redirect('/');
@@ -48,9 +48,21 @@ router.post('/auth', function(req, res, next){
     });
 });
 
-router.get('/test', function(req, res, next){
-    res.write("Welcome: "+req.session.login);
-    res.end();
+router.get('/profile', function(req, res, next){
+    let user = model.getUser(req.session.login);
+
+    if(req.session && req.session.login){
+        user.then((result) => {
+            let userData = result[0];
+            res.render('profile',{
+                title: 'Spotify - profile',
+                name: userData.name
+            });
+        });
+    }else{
+        res.redirect('/users/login');
+    }
+
 })
 
 module.exports = router;

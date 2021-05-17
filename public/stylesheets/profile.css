@@ -1,0 +1,57 @@
+.dashboard-box{
+    width: 1000px;
+    height: 100vh;
+    border: 2px solid #c9c9c9;
+    margin-left:50%;
+    transform: translateX(-50%);
+}
+
+.dashboard-header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    border-bottom: 1px solid #c3c3c3;
+}
+
+.dashboard-username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 326px;
+    height: 60px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.picture-shape{
+    background-color: #1ed760;
+    width: 200px;
+    height: 200px;
+    border-radius:100px;
+}
+
+.search-button{
+    border-radius: 500px;
+    padding: 14px 32px;
+    color: #000000;
+    background-color: #1ED760;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 200px;
+}
+
+#music-name{
+    height: 40px;
+    width:500px
+}
+
+.search-box{
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
