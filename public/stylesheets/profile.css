@@ -55,3 +55,19 @@
     text-align: center;
 }
 
+.add-music-button{
+    width:50px;
+    height: 50px;
+}
+
+.logoff-button{
+    width:50px;
+    height: 50px;
+}
+
+.dash-main{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}

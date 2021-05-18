@@ -62,7 +62,11 @@ router.get('/profile', function(req, res, next){
     }else{
         res.redirect('/users/login');
     }
+});
 
-})
+router.get('/logoff', function(req, res, next){
+    req.session.destroy();
+    res.redirect('/users/login');
+});
 
 module.exports = router;
