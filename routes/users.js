@@ -55,7 +55,8 @@ router.get('/profile', function(req, res, next){
             let userData = result[0];
             res.render('profile',{
                 title: 'Spotify - profile',
-                name: userData.name
+                name: userData.name,
+                user_adm: userData.is_adm
             });
         });
     }else{

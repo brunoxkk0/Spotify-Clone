@@ -7,6 +7,7 @@ var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var musicsRouter = require('./routes/musics');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(session({
 
 app.use("/public",express.static(__dirname + "/public"));
 
+app.use('/musics', musicsRouter);
 app.use('/users', usersRouter);
 app.use('/', indexRouter);
 

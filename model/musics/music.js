@@ -15,11 +15,10 @@ module.exports = class Music {
                 let musicData = {
                     "music_name": req.body.music_name,
                     "singer_name": req.body.singer_name,
-                    "single_cover": req.body.single_cover,
                     "album_name": req.body.album_name,
-                    "music_lyric": req.body.music_lyric,
                     "music_length": req.body.music_length,
-                    "owner_user": req.body.owner_user
+                    "owner_user": req.session.login,
+                    "album_cover": req.body.album_cover
                 };
 
                 return db.collection('musics').insertOne(musicData);

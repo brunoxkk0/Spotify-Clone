@@ -16,9 +16,11 @@
             <div class="dashboard-header">
                 <div class="dash-main">
                     <div class="add-music-button">
-                        <a href="#">
-                            <img width="30px" src="../public/images/plus-solid.svg" alt="Adicionar Música">
-                        </a>
+                        {{#if user_adm}}
+                            <a href="/musics/add">
+                                <img width="30px" src="../public/images/plus-solid.svg" alt="Adicionar Música">
+                            </a>
+                        {{/if}}
                     </div>
                     <div class="picture-shape">
                         <!-- Img here -->

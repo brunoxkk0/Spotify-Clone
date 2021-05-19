@@ -1,0 +1,61 @@
+.music-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.music-form{
+    width: 600px;
+    height: 650px;
+    background-color: #FFF;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.music-form input{
+    display: block;
+    height: 50px;
+    width: 400px;
+    margin-bottom:30px;
+}
+
+.music-error{
+    display: none;
+    color: #FFFFFF;
+    width: 360px;
+    height: 18px;
+    padding: 13px;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #FF0000;
+}
+
+.active{
+    display: block;
+}
+
+#is_adm{
+    width: 17px;
+    height: 16px;
+    display: inline;
+}
+
+.music-submit{
+    border-radius: 500px;
+    padding: 14px 32px;
+    color: #000000;
+    background-color: #1ED760;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+.field-empty{
+    border: 1px solid #FF0000;
+}
+
+
