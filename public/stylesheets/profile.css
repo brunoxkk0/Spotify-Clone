@@ -58,11 +58,13 @@
 .add-music-button{
     width:50px;
     height: 50px;
+    padding:10px;
 }
 
 .logoff-button{
     width:50px;
     height: 50px;
+    padding:10px;
 }
 
 .dash-main{
@@ -70,4 +72,9 @@
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    margin-top: 6px;
+}
+
+.logoff-button img{
+    margin-left: 10px;
 }

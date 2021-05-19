@@ -10,7 +10,7 @@ router.get('/create', function(req, res, next) {
 /* GET users login. */
 router.get('/login', function(req, res, next) {
     if(req.session && req.session.login){
-        res.redirect('/users/dashboard');
+        res.redirect('/users/profile');
     }
     res.render('login',{title: "Spotify - Login"});
 });
@@ -42,9 +42,8 @@ router.post('/auth', function(req, res, next){
                 req.session.login = username;
                 res.redirect('/users/profile');
             }
-        }else{
-            res.redirect('/');
         }
+        res.redirect('/users/login');
     });
 });
 

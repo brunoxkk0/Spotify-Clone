@@ -31,6 +31,6 @@ module.exports = class User {
      static async getUser(username){
          const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
          const db = conn.db();
-         return await db.collection('users').find({username}).toArray();
+         return await db.collection('users').find({username:username}).toArray();
      }
 }
