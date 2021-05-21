@@ -6,7 +6,7 @@ module.exports = class User {
          const db = conn.db();
          let is_adm = false;
 
-         return this.getUser(req.body.username).then((res) =>{
+         return this.getUser(req.body.email).then((res) =>{
              if(res.length === 0){
 
                  if(parseInt(req.body.is_adm_code) === 1010){
@@ -14,7 +14,6 @@ module.exports = class User {
                  }
 
                  let userData = {
-                     "username": req.body.username,
                      "name": req.body.name,
                      "email": req.body.email,
                      "password": req.body.password,
@@ -28,9 +27,9 @@ module.exports = class User {
          });
      }
 
-     static async getUser(username){
+     static async getUser(email){
          const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
          const db = conn.db();
-         return await db.collection('users').find({username:username}).toArray();
+         return await db.collection('users').find({email:email}).toArray();
      }
 }

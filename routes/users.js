@@ -4,7 +4,7 @@ var model = require('../model/users/user');
 
 /* GET users listing. */
 router.get('/create', function(req, res, next) {
-  res.render('create',{title: "Spotify - Criar Conta"});
+  res.render('create',{title: "Spotify - Criar Conta", createError: req.query.createError});
 });
 
 /* GET users login. */
@@ -12,38 +12,35 @@ router.get('/login', function(req, res, next) {
     if(req.session && req.session.login){
         res.redirect('/users/profile');
     }
-    res.render('login',{title: "Spotify - Login"});
+    res.render('login',{title: "Spotify - Login", loginError: req.query.error, createSuccess: req.query.createSuccess});
 });
 
 /* Save users - POST */
 router.post('/save', function(req, res, next) {
     model.insertUsers(req).then((result) => {
         if(result.insertedCount === 1){
-            console.log("User added successfully");
+            res.redirect("/users/login?createSuccess=1");
         }else{
-            console.log("Error trying to add user");
+            res.redirect("/users/create?createError=1");
         }
     });
-
-    res.redirect('/');
-    res.end();
 });
 
 /* Login users - POST */
 router.post('/auth', function(req, res, next){
-    let username = req.body.username;
+    let email = req.body.email;
     let password = req.body.password;
 
-    model.getUser(username).then((result) => {
+    model.getUser(email).then((result) => {
         if(result.length > 0){
             let userData = result[0];
 
             if(password === userData.password){
-                req.session.login = username;
+                req.session.login = email;
                 res.redirect('/users/profile');
             }
         }
-        res.redirect('/users/login');
+        res.redirect('/users/login?error=1');
     });
 });
 

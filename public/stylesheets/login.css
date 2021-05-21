@@ -34,6 +34,19 @@
     background-color: #FF0000;
 }
 
+.create-success{
+    display: none;
+    color: #FFFFFF;
+    width: 360px;
+    height: 18px;
+    padding: 13px;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #4BB543;
+}
+
+
+
 .active{
     display: block;
 }
