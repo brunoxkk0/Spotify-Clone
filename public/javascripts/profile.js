@@ -33,13 +33,13 @@ function showMusics(musics){
 
     for(let i = 0; i < musics.length; i++){
         let musicItem = document.createElement("div");
-        let albumCover = document.createElement("div");
+        let albumCover = document.createElement("img");
         let musicData = document.createElement("div");
         let playButton = document.createElement("div");
         let musicName = document.createElement("h1");
         let musicArtist = document.createElement("h2");
         let musicDuration = document.createElement("h3");
-        let cover = document.createElement("img");
+        let play = document.createElement("img");
 
         albumCover.classList.add("album-cover");
         musicData.classList.add("music-data");
@@ -49,8 +49,8 @@ function showMusics(musics){
         musicArtist.classList.add("music-artist");
         musicItem.classList.add("music-item");
 
-        cover.src = "../public/images/Spotify-Play-Button-1.png";
-
+        play.src = "../public/images/Spotify-Play-Button-1.png";
+        albumCover.src = musics[i].album_cover;
         musicName.innerHTML = musics[i].music_name;
         musicDuration.innerHTML = musics[i].music_duration;
         musicArtist.innerHTML = musics[i].singer_name;
@@ -59,7 +59,7 @@ function showMusics(musics){
         musicData.appendChild(musicArtist);
         musicData.appendChild(musicDuration);
 
-        playButton.appendChild(cover);
+        playButton.appendChild(play);
 
         musicItem.appendChild(albumCover);
         musicItem.appendChild(musicData);

@@ -1,7 +1,20 @@
 var express = require('express');
-var router = express.Router();
+var multer = require('multer');
+var path = require('path');
 var musicModel = require("../model/musics/music");
 var userModel = require("../model/users/user");
+var router = express.Router();
+
+const storage = multer.diskStorage({
+    destination: function(req, file, callback){
+        callback(null,"public/images/covers/");
+    },
+    filename: function(req, file, callback){
+        callback(null, file.originalname + Date.now() +path.extname(file.originalname));
+    }
+});
+
+const upload = multer({storage: storage});
 
 /* GET create music form. */
 router.get('/add', function(req, res, next) {
@@ -33,7 +46,10 @@ router.get('/get-admin-musics', function(req, res, next) {
 });
 
 /* POST save music. */
-router.post('/save', function(req, res, next) {
+router.post('/save', upload.single("album_cover"),function(req, res, next) {
+
+    req.body.album_cover = "/public/images/covers/"+res.req.file.filename;
+
     if(!(req.session && req.session.login)){
         res.redirect('/users/login');
     }
