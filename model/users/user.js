@@ -2,7 +2,8 @@ const MongoClient = require('mongodb').MongoClient;
 
 module.exports = class User {
      static async insertUsers(req){
-         const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
+         const conn = await MongoClient.connect('mongodb+srv://dbspot:123456a@cluster0.8rpch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+
          const db = conn.db();
          let is_adm = false;
 
@@ -28,7 +29,7 @@ module.exports = class User {
      }
 
      static async getUser(email){
-         const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
+         const conn = await MongoClient.connect('mongodb+srv://dbspot:123456a@cluster0.8rpch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
          const db = conn.db();
          return await db.collection('users').find({email:email}).toArray();
      }

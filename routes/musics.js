@@ -26,7 +26,7 @@ router.get('/add', function(req, res, next) {
         }
     });
 
-    res.render('music-form',{title: "Spotify - Adicionar Música"});
+    res.render('music-form',{title: "Spotify - Adicionar Música", errorMusic:req.query.errorMusic});
 });
 
 /* GET Get music from database */
@@ -56,14 +56,11 @@ router.post('/save', upload.single("album_cover"),function(req, res, next) {
 
     musicModel.insertMusic(req).then((result) => {
         if(result.insertedCount === 1){
-            console.log("Music added successfully");
+            res.redirect('/users/profile');
         }else{
-            console.log("Error trying to add music");
+            res.redirect('/musics/add?errorMusic=1');
         }
     });
-
-    res.redirect('/users/profile');
-    res.end();
 });
 
 module.exports = router;

@@ -4,7 +4,7 @@ module.exports = class Music {
 
     static async insertMusic(req){
 
-        const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
+        const conn = await MongoClient.connect('mongodb+srv://dbspot:123456a@cluster0.8rpch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
         const db = conn.db();
 
@@ -29,20 +29,14 @@ module.exports = class Music {
     }
 
     static async getMusic(music){
-        const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
+        const conn = await MongoClient.connect('mongodb+srv://dbspot:123456a@cluster0.8rpch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
         const db = conn.db();
         return await db.collection('musics').find({music_name: music}).toArray();
     }
 
     static async getAdminMusics(email){
-        const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
+        const conn = await MongoClient.connect('mongodb+srv://dbspot:123456a@cluster0.8rpch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
         const db = conn.db();
         return await db.collection('musics').find({owner_user: email}).toArray();
-    }
-
-    static async removeMusic(music_id){
-        const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
-        const db = conn.db();
-        return await db.collection('musics').deleteOne({_id:music_id});
     }
 }
