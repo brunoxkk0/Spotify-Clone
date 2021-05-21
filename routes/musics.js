@@ -25,6 +25,13 @@ router.post('/get-musics', function(req, res, next) {
     });
 });
 
+/* GET Get all musics from database */
+router.get('/get-admin-musics', function(req, res, next) {
+    musicModel.getAdminMusics(req.session.login).then((result) =>{
+        res.json(result);
+    });
+});
+
 /* POST save music. */
 router.post('/save', function(req, res, next) {
     if(!(req.session && req.session.login)){

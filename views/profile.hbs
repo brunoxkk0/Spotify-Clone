@@ -21,6 +21,7 @@
                                 <img width="30px" src="../public/images/plus-solid.svg" alt="Adicionar Música">
                             </a>
                         {{/if}}
+
                     </div>
                     <div class="picture-shape">
                         <!-- Img here -->
@@ -34,6 +35,11 @@
                 <div class="dashboard-username">
                     <h3>{{name}}</h3>
                 </div>
+                {{#if user_adm}}
+                    <button class="switch-button" data-current="search">
+                        Minhas Músicas
+                    </button>
+                {{/if}}
             </div>
 
             <div class="dashboard-content">

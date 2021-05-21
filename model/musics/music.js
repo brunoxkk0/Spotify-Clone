@@ -34,6 +34,12 @@ module.exports = class Music {
         return await db.collection('musics').find({music_name: music}).toArray();
     }
 
+    static async getAdminMusics(email){
+        const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
+        const db = conn.db();
+        return await db.collection('musics').find({owner_user: email}).toArray();
+    }
+
     static async removeMusic(music_id){
         const conn = await MongoClient.connect('mongodb://127.0.0.1:27017/spotify_clone');
         const db = conn.db();
