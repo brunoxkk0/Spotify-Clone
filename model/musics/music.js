@@ -16,7 +16,7 @@ module.exports = class Music {
                     "music_name": req.body.music_name,
                     "singer_name": req.body.singer_name,
                     "album_name": req.body.album_name,
-                    "music_length": req.body.music_length,
+                    "music_duration": req.body.music_duration,
                     "owner_user": req.session.login,
                     "album_cover": req.body.album_cover
                 };

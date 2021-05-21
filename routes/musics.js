@@ -16,6 +16,15 @@ router.get('/add', function(req, res, next) {
     res.render('music-form',{title: "Spotify - Adicionar Música"});
 });
 
+/* GET Get music from database */
+router.post('/get-musics', function(req, res, next) {
+    let musicName = req.body.music;
+
+    musicModel.getMusic(musicName).then((result) =>{
+        res.json(result);
+    });
+});
+
 /* POST save music. */
 router.post('/save', function(req, res, next) {
     if(!(req.session && req.session.login)){
