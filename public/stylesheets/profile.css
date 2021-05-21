@@ -27,11 +27,13 @@ body{
     text-transform: uppercase;
 }
 
-.picture-shape{
-    background-color: #1ed760;
-    width: 200px;
-    height: 200px;
-    border-radius:100px;
+.picture-shape img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 15px;
+    shape-outside: circle(250px at 50% 50%) padding-box;
+    shape-margin: 15px;
 }
 
 .search-button,
